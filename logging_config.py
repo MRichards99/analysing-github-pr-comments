@@ -3,8 +3,8 @@ import sys
 
 def exception_log_handler(type, value, tb):
     logger = logging.getLogger('big-data-python')
-    logger.exception('''Type: {} \n
-                        Value: {} \n
+    logger.exception('''Type: {}
+                        Value: {}
                         Traceback: {}
                      '''.format(type, value, tb))
 
