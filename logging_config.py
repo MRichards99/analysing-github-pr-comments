@@ -25,7 +25,7 @@ def setup_logging():
 
     for handler in file_handlers.values():
         # Element 0: path to log file, element 1: logging level
-        fh = logging.FileHandler(handler[0])
+        fh = logging.FileHandler(handler[0], encoding='utf-8')
         fh.setLevel(handler[1])
         fh.setFormatter(log_format)
         logger.addHandler(fh)
