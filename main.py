@@ -2,6 +2,7 @@ import subprocess
 import time
 
 import logging_config
+import data_analysis
 
 def stop_circusd():
     ''' Subprocess is used to stop the circusd watcher as the code will be exeucted over and over
@@ -19,6 +20,7 @@ logger = logging_config.setup_logging()
 
 if __name__ == '__main__':
     logger.info('Start of new run')
+    data_analysis.get_num_records()
     
 # Stop Circusctl process from repeating code
 stop_circusd()
