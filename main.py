@@ -2,6 +2,7 @@ import subprocess
 import time
 
 import logging_config
+import data_prep
 import data_analysis
 
 def stop_circusd():
@@ -11,7 +12,7 @@ def stop_circusd():
     '''
 
     time.sleep(1)
-    print('Code has finished, stopping Circusd watcher')
+    logger.info('Code has finished, stopping Circusd watcher')
     subprocess.call(['circusctl', 'stop', 'github-big-data'])
 
 
@@ -20,7 +21,7 @@ logger = logging_config.setup_logging()
 
 if __name__ == '__main__':
     logger.info('Start of new run')
-    data_analysis.get_num_records()
+    data_prep.get_data_from_csv()
     
 # Stop Circusctl process from repeating code
 stop_circusd()
