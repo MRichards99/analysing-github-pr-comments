@@ -1,3 +1,7 @@
+# Project Specific
+db_config.json
+dataset.txt
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
