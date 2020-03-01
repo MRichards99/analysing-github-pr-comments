@@ -12,8 +12,6 @@ def open_db_connection():
         sql_config = json.load(config_file)
 
     conn = mysql.connector.connect(**sql_config)
-    logger.debug(conn)
-    logger.debug(conn.database)
 
     return conn
 
@@ -27,7 +25,7 @@ def create_table(conn):
         "  `URL` varchar(150) NOT NULL,"
         "  `AUTHOR` varchar(100) NOT NULL,"
         "  `CREATED_AT` date NOT NULL,"
-        "  `BODY` varchar(500) NOT NULL)")
+        "  `BODY` longtext NOT NULL)")
 
     cursor = conn.cursor()
 
