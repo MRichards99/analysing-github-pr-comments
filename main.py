@@ -22,6 +22,7 @@ def stop_circusd():
 '''
 CREATE_TABLE = False
 CSV_TO_PYTHON = False
+CSV_TO_SQL = True
 
 
 logger = logging_config.setup_logging()
@@ -32,10 +33,17 @@ if __name__ == '__main__':
     conn = db_conn.open_db_connection()
 
     if CREATE_TABLE:
+        logger.info('About to create table in database')
         db_conn.create_table(conn)
 
     if CSV_TO_PYTHON:
+        logger.info('About to take CSV data into Python')
         dataset = data_prep.get_data_from_csv()
+
+    if CSV_TO_SQL:
+        logger.info('About to go from CSV to SQL')
+        data_prep.data_into_sql(conn)
+    
 
     # Write it out to a file
     #data_prep.store_clean_dataset(dataset)
