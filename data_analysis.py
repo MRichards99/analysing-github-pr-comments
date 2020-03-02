@@ -3,7 +3,6 @@ import data_prep
 
 logger = logging.getLogger('big-data-python')
 
-
 def get_num_records():
     dataset = data_prep.get_data_from_csv()
 
